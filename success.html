@@ -2,18 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thanks!</title>
-  <link rel="stylesheet" href="main.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manasa &amp; Sharath — Thank You!</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
 </head>
-<body>
-  <h1>See you soon 🎉</h1>
-  <img src="assets/flowers-banner.jpg" alt="Floral banner" class="hero">
-  <p>Add the events to your calendar:</p>
-  <ul>
-    <li><a href="events/ceremony.ics">Ceremony</a></li>
-    <li><a href="events/reception.ics">Reception</a></li>
-    <li><a href="events/brunch.ics">Brunch</a></li>
-  </ul>
+<body class="success-page">
+  <!-- Hamburger Menu -->
+  <nav class="nav-menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-overlay" id="nav-overlay">
+      <ul class="nav-links">
+        <li><a href="index.html">RSVP</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="success-container animate__animated animate__fadeIn">
+    <h1 class="animate__animated animate__bounceIn">Thank You! 🎉</h1>
+    <p class="success-message animate__animated animate__fadeInUp animate__delay-1s">
+      We're so excited to celebrate with you!<br>
+      Your RSVP has been received successfully.
+    </p>
+
+    <div class="calendar-section animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>Add Events to Your Calendar</h2>
+      <p class="calendar-subtitle">Don't miss any of the celebrations!</p>
+      
+      <div class="calendar-cards">
+        <div class="calendar-card">
+          <div class="calendar-icon">📅</div>
+          <h3>Mehendi</h3>
+          <p class="calendar-date">August 07, 2024 • 6:00 PM</p>
+          <p class="calendar-location">517 Jacob Dr, Aubrey, TX</p>
+          <a href="events/manasa-sharath-mehendi.ics" class="calendar-btn" download>Add to Calendar</a>
+        </div>
+
+        <div class="calendar-card">
+          <div class="calendar-icon">🌟</div>
+          <h3>Haldi</h3>
+          <p class="calendar-date">August 08, 2024 • 6:00 PM</p>
+          <p class="calendar-location">Elegance Estates, Pilot Point, TX</p>
+          <a href="events/manasa-sharath-haldi.ics" class="calendar-btn" download>Add to Calendar</a>
+        </div>
+
+        <div class="calendar-card">
+          <div class="calendar-icon">💒</div>
+          <h3>Wedding</h3>
+          <p class="calendar-date">August 09, 2024 • 11:35 AM</p>
+          <p class="calendar-location">Elegance Estates, Pilot Point, TX</p>
+          <a href="events/manasa-sharath-wedding.ics" class="calendar-btn" download>Add to Calendar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-section animate__animated animate__fadeInUp animate__delay-3s">
+      <h3>Questions?</h3>
+      <p>Feel free to reach out if you have any questions about the events!</p>
+      <div class="contact-links">
+        <a href="mailto:manasakamepally0027@gmail.com" class="contact-btn">✉️ Email Us</a>
+        <a href="tel:+19452329179" class="contact-btn">📞 Call Us</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="powered">Built&nbsp;with&nbsp;☕️&nbsp;by&nbsp;Tarun</span>
+  </footer>
 </body>
 </html>

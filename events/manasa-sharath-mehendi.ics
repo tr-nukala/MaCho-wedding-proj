@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Manasa & Sharath Wedding//NONSGML Wedding Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:mehendi-2024-08-07@manasa-sharath-wedding.com
+DTSTART:20240807T180000
+DTEND:20240807T230000
+DTSTAMP:20240714T120000Z
+SUMMARY:Mehendi Ceremony - Manasa & Sharath
+DESCRIPTION:Join us for the traditional Mehendi ceremony with beautiful henna designs, music, and celebration!
+LOCATION:517 Jacob Dr, Aubrey, TX 76227
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Mehendi Ceremony starts in 2 hours
+END:VALARM
+END:VEVENT
+END:VCALENDAR

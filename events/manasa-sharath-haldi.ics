@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Manasa & Sharath Wedding//NONSGML Wedding Events//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:haldi-2024-08-08@manasa-sharath-wedding.com
+DTSTART:20240808T180000
+DTEND:20240808T230000
+DTSTAMP:20240714T120000Z
+SUMMARY:Haldi Ceremony - Manasa & Sharath
+DESCRIPTION:Traditional turmeric ceremony filled with joy, laughter, and lots of yellow! Bring your cool moves and crazy vibes. Dress code: Wear white or yellow.
+LOCATION:Elegance Estates, 1301 E Blackjack Rd, Pilot Point, TX 76258
+STATUS:CONFIRMED
+SEQUENCE:0
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Haldi Ceremony starts in 2 hours
+END:VALARM
+END:VEVENT
+END:VCALENDAR

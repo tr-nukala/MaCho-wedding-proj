@@ -534,14 +534,184 @@ footer {
   transform: none;
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 480px) {
-  .party-size-container {
-    flex-direction: column;
-    gap: 0.8rem;
+/* --- Success Page Styles --- */
+.success-page {
+  text-align: center;
+}
+
+.success-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.success-container h1 {
+  font-size: 3.5rem;
+  margin: 2rem 0 1rem;
+  color: #4a2c57;
+}
+
+.success-message {
+  font-size: 1.2rem;
+  color: #6f4c7b;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.calendar-section {
+  margin: 4rem 0;
+}
+
+.calendar-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #4a2c57;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-subtitle {
+  color: #6f4c7b;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.calendar-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.calendar-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(141, 102, 153, 0.15);
+  border: 1px solid rgba(141, 102, 153, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.calendar-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(141, 102, 153, 0.25);
+}
+
+.calendar-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.calendar-card h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #4a2c57;
+  margin: 0.5rem 0;
+}
+
+.calendar-date {
+  font-weight: 600;
+  color: #8d6699;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.calendar-location {
+  color: #6f4c7b;
+  font-size: 0.95rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+}
+
+.calendar-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #8d6699 0%, #c39ecf 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.calendar-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(141, 102, 153, 0.4);
+}
+
+.contact-section {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin: 3rem auto;
+  max-width: 500px;
+  box-shadow: 0 8px 32px rgba(141, 102, 153, 0.1);
+}
+
+.contact-section h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  color: #4a2c57;
+  margin-bottom: 1rem;
+}
+
+.contact-section p {
+  color: #6f4c7b;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: rgba(141, 102, 153, 0.1);
+  color: #4a2c57;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  border: 2px solid rgba(141, 102, 153, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: rgba(141, 102, 153, 0.2);
+  border-color: rgba(141, 102, 153, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .success-container h1 {
+    font-size: 2.5rem;
   }
   
-  .party-card {
-    max-width: none;
+  .calendar-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .calendar-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-section {
+    padding: 2rem;
+    margin: 2rem 1rem;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    align-items: center;
   }
 }
