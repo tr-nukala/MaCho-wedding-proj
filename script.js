@@ -96,3 +96,36 @@ window.addEventListener('DOMContentLoaded', () => {
     update();
   });
 });
+
+// 4. Countdown timer for wedding date
+function updateCountdown() {
+  const weddingDate = new Date('2024-08-09T11:35:00').getTime();
+  const now = new Date().getTime();
+  const timeLeft = weddingDate - now;
+
+  if (timeLeft > 0) {
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+    const daysElement = document.getElementById('days');
+    const hoursElement = document.getElementById('hours');
+    const minutesElement = document.getElementById('minutes');
+
+    if (daysElement) daysElement.textContent = days;
+    if (hoursElement) hoursElement.textContent = hours;
+    if (minutesElement) minutesElement.textContent = minutes;
+  } else {
+    // Wedding has passed
+    const countdownElement = document.getElementById('countdown');
+    if (countdownElement) {
+      countdownElement.innerHTML = '<div class="celebration">🎉 We\'re Married! 🎉</div>';
+    }
+  }
+}
+
+// Update countdown on page load and every minute
+if (document.getElementById('countdown')) {
+  updateCountdown();
+  setInterval(updateCountdown, 60000); // Update every minute
+}

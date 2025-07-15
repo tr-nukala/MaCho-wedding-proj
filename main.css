@@ -445,7 +445,7 @@ footer {
 
 .rsvp-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(141, 102, 153, 0.4);
+  box-shadow: 0 6px 20px rgba(141, 102,153, 0.4);
 }
 
 /* --- Party Size Cards --- */
@@ -690,28 +690,453 @@ footer {
   transform: translateY(-2px);
 }
 
-/* Responsive design */
+/* --- Landing Page Styles --- */
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem;
+  min-height: 80vh;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.wedding-date {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #8d6699;
+  margin: 1rem 0;
+}
+
+.wedding-location {
+  font-size: 1.2rem;
+  color: #6f4c7b;
+  margin-bottom: 3rem;
+}
+
+.countdown-section {
+  margin: 3rem 0;
+}
+
+.countdown-label {
+  font-size: 1.1rem;
+  color: #6f4c7b;
+  margin-bottom: 1rem;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.countdown-item {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(141, 102, 153, 0.15);
+  min-width: 80px;
+}
+
+.countdown-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #4a2c57;
+  line-height: 1;
+}
+
+.countdown-text {
+  font-size: 0.9rem;
+  color: #6f4c7b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  text-align: center;
+}
+
+.cta-btn.primary {
+  background: linear-gradient(135deg, #8d6699 0%, #c39ecf 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(141, 102, 153, 0.3);
+}
+
+.cta-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(141, 102, 153, 0.4);
+}
+
+.cta-btn.secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #4a2c57;
+  border: 2px solid rgba(141, 102, 153, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.cta-btn.secondary:hover {
+  background: rgba(141, 102, 153, 0.1);
+  border-color: rgba(141, 102, 153, 0.5);
+  transform: translateY(-2px);
+}
+
+.story-section {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  padding: 4rem 1rem;
+  margin-top: 2rem;
+}
+
+.story-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.story-container h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #4a2c57;
+  margin-bottom: 2rem;
+}
+
+.story-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #6f4c7b;
+  margin-bottom: 3rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.event-preview h3 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #4a2c57;
+  margin-bottom: 2rem;
+}
+
+.event-preview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.preview-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 12px rgba(141, 102, 153, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-5px);
+}
+
+.preview-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.preview-card h4 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #4a2c57;
+  margin: 0.5rem 0;
+}
+
+.preview-card p {
+  color: #6f4c7b;
+  font-weight: 500;
+}
+
+/* --- Contact Page Styles --- */
+.contact-page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.contact-info-section {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 8px 32px rgba(141, 102, 153, 0.1);
+}
+
+.contact-info-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #4a2c57;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.contact-info-section p {
+  text-align: center;
+  color: #6f4c7b;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(141, 102, 153, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(141, 102, 153, 0.1);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.contact-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: #4a2c57;
+  font-size: 1.1rem;
+}
+
+.contact-content a {
+  color: #8d6699;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-content a:hover {
+  color: #6f4c7b;
+  text-decoration: underline;
+}
+
+.contact-content p {
+  margin: 0;
+  color: #6f4c7b;
+  line-height: 1.4;
+}
+
+.calendar-download-section {
+  margin: 3rem 0;
+}
+
+.calendar-download-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #4a2c57;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.map-section {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-top: 3rem;
+  box-shadow: 0 8px 32px rgba(141, 102, 153, 0.1);
+}
+
+.map-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  color: #4a2c57;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.venue-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.venue-card {
+  background: rgba(141, 102, 153, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid rgba(141, 102, 153, 0.1);
+}
+
+.venue-card h3 {
+  color: #4a2c57;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.venue-card p {
+  color: #6f4c7b;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.map-btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #8d6699 0%, #c39ecf 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(141, 102, 153, 0.4);
+}
+
+/* --- Photos Page Styles --- */
+.photos-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.coming-soon {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  box-shadow: 0 8px 32px rgba(141, 102, 153, 0.1);
+}
+
+.coming-soon-icon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.coming-soon h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #4a2c57;
+  margin-bottom: 1.5rem;
+}
+
+.coming-soon p {
+  font-size: 1.1rem;
+  color: #6f4c7b;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.photo-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.photo-placeholder {
+  aspect-ratio: 4/3;
+  background: rgba(141, 102, 153, 0.1);
+  border: 2px dashed rgba(141, 102, 153, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f4c7b;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.note {
+  font-style: italic;
+  color: #8d6699;
+  font-size: 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .success-container h1 {
+  .hero-content h1 {
     font-size: 2.5rem;
   }
   
-  .calendar-cards {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .wedding-date {
+    font-size: 1.4rem;
   }
   
-  .calendar-card {
-    padding: 1.5rem;
+  .countdown {
+    gap: 1rem;
   }
   
-  .contact-section {
-    padding: 2rem;
-    margin: 2rem 1rem;
+  .countdown-item {
+    padding: 1rem;
+    min-width: 60px;
   }
   
-  .contact-links {
+  .countdown-number {
+    font-size: 1.8rem;
+  }
+  
+  .cta-buttons {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .contact-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .venue-cards {
+    grid-template-columns: 1fr;
   }
 }
