@@ -32,7 +32,7 @@
   <p>Please RSVP by <strong>August 7th</strong>. </p>
 
   <!-- Formspree handles data: replace xxxx with your form ID -->
-  <form action="https://formspree.io/f/xxxxxxxx" method="POST" class="animate__animated animate__fadeInUp">
+  <form id="rsvp-form" action="https://formspree.io/f/mwpqkekw" method="POST" class="animate__animated animate__fadeInUp">
     <label>Your Name
       <input name="name" required placeholder="First Name" type="text" pattern="[A-Za-z\s]+" title="Please enter your name using letters only.">
     </label>
@@ -123,8 +123,11 @@
     </label>
     </fieldset>
 
-    <!-- Auto-redirect after submit -->
-    <input type="hidden" name="_redirect" value="success.html">
+    <!-- Honeypot for bots -->
+    <input type="text" name="website" style="display:none" autocomplete="off">
+    <!-- Shared secret token -->
+    <input type="hidden" name="token" value="rsvp123">
+
     <div style="text-align: center; margin-top: 1em;">
         <button type="submit">Send RSVP</button>
     </div>
@@ -134,3 +137,45 @@
   </footer>
 </body>
 </html>
+<script>
+/* ---- AJAX submit to Formspree ---- */
+(function () {
+  const form = document.getElementById('rsvp-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Build FormData directly from the form fields
+    const fd = new FormData(form);
+
+    // Add computed fields
+    fd.set('token', 'rsvp123');   // shared secret
+    fd.set(
+      'events',
+      Array.from(form.querySelectorAll('input[type=checkbox]:checked'))
+           .map(cb => cb.name)
+           .join(', ')
+    );
+
+    // Honeypot field (website) already part of FormData
+
+    const endpoint = 'https://script.google.com/macros/s/AKfycbxcQkjPC0CRhlJ0O3HoZvO7t3R7paWm6xntx0GhlboYEmvmiOJ_5_RFT3VZCaJi8LSo/exec';
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      await fetch(endpoint, { method: 'POST', body: fd, mode: 'no-cors' });
+      // We can't read the response in no‑cors mode,
+      // but if the network succeeds we treat it as success.
+      window.location.href = 'success.html';
+    } catch {
+      alert('Network error. Please try again.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send RSVP';
+    }
+  });
+})();
+</script>
