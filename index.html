@@ -14,24 +14,36 @@
 </head>
 <body>
   <h1 class="animate__animated animate__fadeInDown">Manasa &amp; Sharath</h1>
-  <p>Please RSVP by <strong>September 1st</strong>. Enter the total number of people in your party.</p>
+  <p>Please RSVP by <strong>August 7th</strong>. </p>
 
   <!-- Formspree handles data: replace xxxx with your form ID -->
   <form action="https://formspree.io/f/xxxxxxxx" method="POST" class="animate__animated animate__fadeInUp">
-    <label>Your name
+    <label>Your Name
       <input name="name" required>
     </label>
 
-    <label>Party size
-      <input name="partySize" type="number" min="1" max="10" required>
+    <label>Email
+      <input name="email" type="email" required placeholder="name@example.com">
     </label>
+
+    <label>Phone Number
+      <input name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10‑digit number">
+    </label>
+
+    <label>Party size (including you)</label>
+    <div class="number-input">
+      <button type="button" class="minus">-</button>
+      <input name="partySize" type="number" min="1" max="10" value="1" required>
+      <button type="button" class="plus">+</button>
+    </div>
 
     <fieldset>
       <legend>Events</legend>
 
-      <label><input type="checkbox" name="ceremony"  value="yes"> Ceremony – Oct 25 @ 4 PM</label><br>
-      <label><input type="checkbox" name="reception" value="yes"> Reception – Oct 25 @ 6 PM</label><br>
-      <label><input type="checkbox" name="brunch"    value="yes"> Brunch    – Oct 26 @ 10 AM</label>
+      <label><input type="checkbox" name="Mehandi"  value="yes"> Mehandi – Aug 07 @ 4 PM</label><br>
+      <label><input type="checkbox" name="Haldi" value="yes"> Haldi – Aug 08 @ 6 PM</label><br>
+      <small class="hint">Bring your cool moves and crazy vibes. Wear white or yellow.</small>
+      <label><input type="checkbox" name="Wedding"    value="yes"> Wedding – Aug 09 @ 10 AM</label>
     </fieldset>
 
     <!-- Auto-redirect after submit -->

@@ -1,3 +1,34 @@
+/* --- Modern, underline-style inputs --- */
+form input:not([type="checkbox"]):not([type="radio"]),
+form textarea,
+form select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+  outline: none;
+  border-bottom-color: #8d6699;
+}
+
+/* refine the small party-size field */
+.number-input input {
+  width: 3rem;
+  text-align: center;
+  padding: 0.4rem 0;
+}
+
+.number-input input:focus {
+  border-bottom-color: #8d6699;
+}
+
 /* --- Base layout --- */
 body {
   font-family: 'Poppins', system-ui, sans-serif;
@@ -83,4 +114,13 @@ body::before {
 
 @keyframes fadeInBg {
   to { opacity: 0.35; }        /* final subtle visibility */
+}
+
+/* --- Event hint styling --- */
+.hint {
+  display: block;
+  margin: -0.2rem 0 0 2rem;    /* indent to line up under checkbox text */
+  font-size: 0.85rem;
+  color: #6f4c7b;              /* soft plum to match button palette */
+  font-style: italic;
 }
