@@ -469,7 +469,7 @@ footer {
 }
 
 .party-card:hover {
-  border-color: rgba(141, 102,
+  border-color: rgba(141, 102, 153, 0.4);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(141, 102, 153, 0.15);
 }
@@ -753,7 +753,7 @@ footer {
   backdrop-filter: blur(4px);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(141, 102
+  box-shadow: 0 4px 12px rgba(141, 102, 153, 0.15);
   min-width: 80px;
 }
 
