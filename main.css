@@ -116,6 +116,60 @@ body::before {
   to { opacity: 0.35; }        /* final subtle visibility */
 }
 
+/* --- Event card layout --- */
+.event {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;                 /* space between checkbox and text */
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.4rem;
+  border: 1px solid #d9cfe2;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(2px);
+}
+
+.event-content {
+  flex: 1;
+  line-height: 1.4;
+}
+
+
+.event-content {
+  flex: 1;
+  line-height: 1.4;
+}
+
+/* --- Event typography hierarchy --- */
+.event-name {
+  font-weight: 700;
+  font-size: 1.15rem;          /* largest */
+}
+
+.event-datetime {
+  font-weight: 500;
+  font-size: 1rem;             /* slightly smaller */
+  color: #4a2c57;
+  margin-top: 0.1rem;
+}
+
+.event-address {
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+
+.event-address a {
+  color: #6f4c7b;
+  text-decoration: underline;
+}
+
+.event-tag {
+  font-size: 0.9rem;
+  color: #6f4c7b;
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
 /* --- Event hint styling --- */
 .hint {
   display: block;
@@ -154,4 +208,42 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* --- Custom checkbox styling --- */
+.event input[type="checkbox"] {
+  appearance: none;           /* remove default */
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.4rem;          /* aligns checkbox with large text */
+  border: 2px solid #8d6699;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.event input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.event input[type="checkbox"]:checked {
+  background-color: #8d6699;
+  border-color: #8d6699;
+}
+
+.event input[type="checkbox"]:checked::before {
+  content: "✓";
+  opacity: 1;
+  transform: scale(1);
 }
