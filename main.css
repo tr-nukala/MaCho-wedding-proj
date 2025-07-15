@@ -1,3 +1,86 @@
-body { font-family: system-ui, sans-serif; max-width: 600px; margin: 2rem auto; line-height: 1.5; }
-label, fieldset { display: block; margin: 1rem 0; }
-button { padding: .6rem 1.2rem; font-size: 1rem; }
+/* --- Base layout --- */
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  margin: 0;
+  padding: 0 1rem;
+  background: rgba(255,255,255,0.75);      /* translucent layer so backdrop shows */
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Typography & layout helpers --- */
+label,
+fieldset {
+  display: block;
+  margin: 1rem 0;
+}
+
+/* --- Buttons --- */
+button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #8d6699;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #734f80;
+}
+
+/* --- Hero / banner image --- */
+img.hero {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+/* --- Fancy heading font --- */
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.8rem;
+  color: #4a2c57;
+  margin-top: 1.5rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+/* --- Form card styling --- */
+form {
+  backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.65);
+  padding: 1.5rem 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  max-width: 420px;
+  width: 100%;
+}
+
+/* --- Responsive tweak for wider screens --- */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/* --- Full‑page backdrop image with gentle fade‑in --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("assets/banner_backdrop.png") center/cover no-repeat;
+  opacity: 0;                  /* start transparent */
+  z-index: -1;                 /* behind all content */
+  filter: blur(1px);           /* subtle softness */
+  animation: fadeInBg 1.2s ease-out forwards;
+}
+
+@keyframes fadeInBg {
+  to { opacity: 0.35; }        /* final subtle visibility */
+}
