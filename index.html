@@ -52,10 +52,13 @@
         >
     </label>
 
-    <label>Party size (including you)</label>
-    <div class="number-input" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0 auto;">
-        <button type="button" class="minus" aria-label="Decrease">−</button>
-        <input
+    <label>Party Size</label>
+    <div class="party-size-container">
+      <div class="party-card">
+        <div class="party-label">Adults</div>
+        <div class="number-input">
+          <button type="button" class="minus" aria-label="Decrease adults">−</button>
+          <input
             name="partySize"
             type="number"
             min="1"
@@ -63,43 +66,61 @@
             required
             inputmode="numeric"
             pattern="[0-9]*"
-            style="width: 3rem; text-align: center;"
-        >
-        <button type="button" class="plus" aria-label="Increase">+</button>
+          >
+          <button type="button" class="plus" aria-label="Increase adults">+</button>
+        </div>
+      </div>
+      
+      <div class="party-card">
+        <div class="party-label">Kids</div>
+        <div class="number-input">
+          <button type="button" class="minus" aria-label="Decrease kids">−</button>
+          <input
+            name="kids"
+            type="number"
+            min="0"
+            value="0"
+            required
+            inputmode="numeric"
+            pattern="[0-9]*"
+          >
+          <button type="button" class="plus" aria-label="Increase kids">+</button>
+        </div>
+      </div>
     </div>
 
     <fieldset>
       <legend>Events</legend>
 
-      <div class="event">
+    <label class="event" for="ev-mehendi">
         <input type="checkbox" id="ev-mehendi" name="Mehendi" value="yes">
         <div class="event-content">
-          <div class="event-name">Mehendi</div>
-          <div class="event-datetime">August&nbsp;07, 6&nbsp;PM onwards</div>
-          <div class="event-address">517&nbsp;Jacob&nbsp;Dr, Aubrey, TX&nbsp;76227</div>
+            <div class="event-name">Mehendi</div>
+            <div class="event-datetime">August&nbsp;07, 6&nbsp;PM onwards</div>
+            <div class="event-address">517&nbsp;Jacob&nbsp;Dr, Aubrey, TX&nbsp;76227</div>
         </div>
-      </div>
+    </label>
 
-      <div class="event">
+    <label class="event" for="ev-haldi">
         <input type="checkbox" id="ev-haldi" name="Haldi" value="yes">
         <div class="event-content">
-          <div class="event-name">Haldi</div>
-          <div class="event-datetime">August&nbsp;08, 6&nbsp;PM onwards</div>
-          <div class="event-address">Elegance Estates, 1301&nbsp;E&nbsp;Blackjack&nbsp;Rd, Pilot&nbsp;Point, TX&nbsp;76258</div>
-        <div class="event-tag">
-            <strong><em>Bring your cool moves and crazy vibes. Wear white or yellow.</em></strong>
+            <div class="event-name">Haldi</div>
+            <div class="event-datetime">August&nbsp;08, 6&nbsp;PM onwards</div>
+            <div class="event-address">Elegance Estates, 1301&nbsp;E&nbsp;Blackjack&nbsp;Rd, Pilot&nbsp;Point, TX&nbsp;76258</div>
+            <div class="event-tag">
+                <strong><em>Bring your cool moves and crazy vibes. Wear white or yellow.</em></strong>
+            </div>
         </div>
-        </div>
-      </div>
+    </label>
 
-      <div class="event">
+    <label class="event" for="ev-wedding">
         <input type="checkbox" id="ev-wedding" name="Wedding" value="yes">
         <div class="event-content">
-          <div class="event-name">Wedding</div>
-          <div class="event-datetime">August&nbsp;09, Muhurtham:&nbsp;11:35&nbsp;PM (reception starts 9&nbsp;PM)</div>
-          <div class="event-address">Elegance Estates, 1301&nbsp;E&nbsp;Blackjack&nbsp;Rd, Pilot&nbsp;Point, TX&nbsp;76258</div>
+            <div class="event-name">Wedding</div>
+            <div class="event-datetime">August&nbsp;09, Muhurtham:&nbsp;11:35&nbsp;PM (reception starts 9&nbsp;PM)</div>
+            <div class="event-address">Elegance Estates, 1301&nbsp;E&nbsp;Blackjack&nbsp;Rd, Pilot&nbsp;Point, TX&nbsp;76258</div>
         </div>
-      </div>
+    </label>
     </fieldset>
 
     <!-- Auto-redirect after submit -->

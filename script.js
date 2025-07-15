@@ -1,12 +1,26 @@
-// 1. Friendly party-size guard
-const sizeInput = document.querySelector('input[name="partySize"]');
-if (sizeInput) {
-  sizeInput.addEventListener('input', e => {
-    const v = +e.target.value;
-    if (v < 1) e.target.value = 1;
-    if (v > 10) {
-      e.target.value = 10;
-      alert("Give us a heads-up if you’re bringing more than 10!");
+// 1. Hamburger menu functionality
+const hamburgerBtn = document.querySelector('#hamburger-btn');
+const navOverlay = document.querySelector('#nav-overlay');
+
+if (hamburgerBtn && navOverlay) {
+  hamburgerBtn.addEventListener('click', () => {
+    hamburgerBtn.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+  });
+
+  // Close menu when clicking on overlay
+  navOverlay.addEventListener('click', (e) => {
+    if (e.target === navOverlay) {
+      hamburgerBtn.classList.remove('active');
+      navOverlay.classList.remove('active');
+    }
+  });
+
+  // Close menu when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
+      hamburgerBtn.classList.remove('active');
+      navOverlay.classList.remove('active');
     }
   });
 }
@@ -38,22 +52,22 @@ if (phoneInput) {
   });
 }
 
-// 2. Little confetti pop on success page
+// 3. Little confetti pop on success page
 if (location.pathname.endsWith('success.html')) {
   import('https://cdn.skypack.dev/canvas-confetti').then(({ default: confetti }) => {
     confetti({ particleCount: 150, spread: 70 });
   });
 }
 
-/* === +/- party-size control === */
+/* === +/- number input controls === */
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.number-input').forEach(wrapper => {
-    const input = wrapper.querySelector('input[name="partySize"]');
+    const input = wrapper.querySelector('input[type="number"]');
     if (!input) return;
 
     const minus = wrapper.querySelector('.minus');
     const plus  = wrapper.querySelector('.plus');
-    const min   = parseInt(input.min || 1, 10);
+    const min   = parseInt(input.min || 0, 10);
     const max   = parseInt(input.max || 99, 10);
 
     const update = () => {
@@ -82,30 +96,3 @@ window.addEventListener('DOMContentLoaded', () => {
     update();
   });
 });
-
-// 1. Hamburger menu functionality
-const hamburgerBtn = document.querySelector('#hamburger-btn');
-const navOverlay = document.querySelector('#nav-overlay');
-
-if (hamburgerBtn && navOverlay) {
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('active');
-    navOverlay.classList.toggle('active');
-  });
-
-  // Close menu when clicking on overlay
-  navOverlay.addEventListener('click', (e) => {
-    if (e.target === navOverlay) {
-      hamburgerBtn.classList.remove('active');
-      navOverlay.classList.remove('active');
-    }
-  });
-
-  // Close menu when pressing Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
-      hamburgerBtn.classList.remove('active');
-      navOverlay.classList.remove('active');
-    }
-  });
-}
