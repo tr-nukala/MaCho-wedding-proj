@@ -31,8 +31,8 @@
     </label>
 
     <label>Party size (including you)</label>
-    <div class="number-input">
-        <button type="button" class="plus" aria-label="Increase" style="display: block; margin: 0 auto;">+</button>
+    <div class="number-input" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0 auto;">
+        <button type="button" class="minus" aria-label="Decrease">−</button>
         <input
             name="partySize"
             type="number"
@@ -41,9 +41,9 @@
             required
             inputmode="numeric"
             pattern="[0-9]*"
-            style="width: 50%; display: block; margin: 0 auto;"
+            style="width: 3rem; text-align: center;"
         >
-        <button type="button" class="minus" aria-label="Decrease" style="display: block; margin: 0 auto;">−</button>
+        <button type="button" class="plus" aria-label="Increase">+</button>
     </div>
 
     <fieldset>
