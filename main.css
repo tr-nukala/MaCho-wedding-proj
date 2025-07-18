@@ -411,6 +411,26 @@ footer {
   border-left: 4px solid #8d6699;
 }
 
+.maps-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #4285f4;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.maps-link:hover {
+  background: #1a73e8;
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: white !important;
+}
+
 .event-description {
   font-size: 1rem;
   color: #333;

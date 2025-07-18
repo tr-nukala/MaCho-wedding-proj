@@ -21,8 +21,8 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:wedding-reception-2025-08-09@manasa-sharath-wedding.com
-DTSTART:20250810T010000
-DTEND:20250810T050000
+DTSTART:20250809T210000
+DTEND:20250810T020000
 DTSTAMP:20250717T120000Z
 SUMMARY:Wedding Reception - Manasa & Sharath
 DESCRIPTION:Join us for dinner\, dancing\, and celebration after the wedding ceremony!
