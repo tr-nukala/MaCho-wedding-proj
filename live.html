@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manasa &amp; Sharath — Live Stream</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Hamburger Menu -->
+  <nav class="nav-menu">
+    <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-overlay" id="nav-overlay">
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="rsvp.html">RSVP</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="photos.html">Photos</a></li>
+        <li><a href="live.html">Live Stream</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <a href="home.html" class="site-title-link">
+    <h1 class="animate__animated animate__fadeInDown">🔴 Live Stream</h1>
+  </a>
+  <p class="animate__animated animate__fadeInUp">Watch our celebration events live from anywhere.</p>
+
+  <div class="live-page-container animate__animated animate__fadeInUp">
+    
+    <!-- Live Stream Status -->
+    <div class="live-status-section">
+      <div id="live-indicator" class="live-indicator">
+        <div class="pulse-dot"></div>
+        <span id="status-text">Streams will go live closer to event time</span>
+      </div>
+      
+      <div class="next-event-info">
+        <h3>Next Event</h3>
+        <div class="event-countdown">
+          <div class="next-event-details">
+            <span class="event-name">Mehendi Ceremony</span>
+            <span class="event-date">August 7th, 2025 at 6:00 PM</span>
+          </div>
+          <div class="countdown-to-event" id="event-countdown">
+            <div class="countdown-item">
+              <span class="countdown-number" id="days-to-event">0</span>
+              <span class="countdown-text">Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="hours-to-event">0</span>
+              <span class="countdown-text">Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number" id="minutes-to-event">0</span>
+              <span class="countdown-text">Minutes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Stream Cards -->
+    <div class="live-streams-section">
+      <h2>Event Live Streams</h2>
+      <p class="stream-subtitle">Join us virtually for each celebration</p>
+      
+      <div class="stream-cards">
+        <div class="stream-card" id="mehendi-stream">
+          <div class="stream-header">
+            <div class="stream-icon">🎨</div>
+            <div class="stream-info">
+              <h3>Mehendi Ceremony</h3>
+              <p class="stream-date">August 7th, 2025 • 6:00 PM</p>
+              <p class="stream-status offline">Stream will start closer to event</p>
+            </div>
+          </div>
+          
+          <div class="stream-player">
+            <div class="placeholder-player">
+              <div class="play-icon">▶️</div>
+              <p>Live stream will be available here</p>
+            </div>
+            <!-- YouTube embed will be added here when live -->
+            <!-- <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allowfullscreen></iframe> -->
+          </div>
+          
+          <div class="stream-description">
+            <p>Watch the traditional Mehendi ceremony with beautiful henna designs, music, and celebration!</p>
+          </div>
+        </div>
+
+        <div class="stream-card" id="haldi-stream">
+          <div class="stream-header">
+            <div class="stream-icon">🌟</div>
+            <div class="stream-info">
+              <h3>Haldi Ceremony</h3>
+              <p class="stream-date">August 8th, 2025 • 6:00 PM</p>
+              <p class="stream-status offline">Stream will start closer to event</p>
+            </div>
+          </div>
+          
+          <div class="stream-player">
+            <div class="placeholder-player">
+              <div class="play-icon">▶️</div>
+              <p>Live stream will be available here</p>
+            </div>
+            <!-- YouTube embed will be added here when live -->
+            <!-- <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allowfullscreen></iframe> -->
+          </div>
+          
+          <div class="stream-description">
+            <p>Join the traditional turmeric ceremony filled with joy, laughter, and lots of yellow!</p>
+          </div>
+        </div>
+
+        <div class="stream-card" id="wedding-stream">
+          <div class="stream-header">
+            <div class="stream-icon">🕉️</div>
+            <div class="stream-info">
+              <h3>Wedding Ceremony</h3>
+              <p class="stream-date">August 9th, 2025 • 11:35 PM</p>
+              <p class="stream-status offline">Stream will start closer to event</p>
+            </div>
+          </div>
+          
+          <div class="stream-player">
+            <div class="placeholder-player">
+              <div class="play-icon">▶️</div>
+              <p>Live stream will be available here</p>
+            </div>
+            <!-- YouTube embed will be added here when live -->
+            <!-- <iframe src="https://www.youtube.com/embed/LIVE_STREAM_ID" frameborder="0" allowfullscreen></iframe> -->
+          </div>
+          
+          <div class="stream-description">
+            <p>Witness the sacred moment where two hearts become one, followed by celebration and dancing!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stream Instructions -->
+    <div class="stream-instructions">
+      <h3>How to Watch</h3>
+      <div class="instruction-cards">
+        <div class="instruction-card">
+          <div class="instruction-icon">📱</div>
+          <h4>On Mobile</h4>
+          <p>Simply visit this page on your phone or tablet when the stream is live</p>
+        </div>
+        <div class="instruction-card">
+          <div class="instruction-icon">💻</div>
+          <h4>On Computer</h4>
+          <p>Open this page in your web browser for the best viewing experience</p>
+        </div>
+        <div class="instruction-card">
+          <div class="instruction-icon">📺</div>
+          <h4>On TV</h4>
+          <p>Cast from your phone/computer or use YouTube app to search for our live stream</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat & Interaction -->
+    <div class="interaction-section">
+      <h3>Join the Celebration</h3>
+      <p>Even though you're watching from afar, you're still part of our special day!</p>
+      <div class="interaction-options">
+        <a href="mailto:manasakamepally0027@gmail.com?subject=Live Stream Wishes" class="interaction-btn">📧 Send Wishes</a>
+        <a href="tel:+19452329179" class="interaction-btn">📞 Call Us</a>
+        <a href="#" class="interaction-btn" onclick="shareStream()">📤 Share Stream</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="powered animate__animated animate__heartBeat animate__repeat-2">
+        Powered by bad dance moves 💃 & good coffee ☕<br>
+        Site brewed with ❤️ by <strong>Tarun Reddy Nukala</strong>
+    </span>
+  </footer>
+
+  <script>
+    // Live stream functionality
+    function updateEventCountdown() {
+      const nextEventDate = new Date('2025-08-07T18:00:00').getTime();
+      const now = new Date().getTime();
+      const timeLeft = nextEventDate - now;
+
+      if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+
+        document.getElementById('days-to-event').textContent = days;
+        document.getElementById('hours-to-event').textContent = hours;
+        document.getElementById('minutes-to-event').textContent = minutes;
+      } else {
+        // Event has started or passed
+        document.getElementById('event-countdown').innerHTML = '<p class="event-live">🔴 Event is Live!</p>';
+      }
+    }
+
+    // Function to enable live stream (call this when ready to go live)
+    function enableStream(eventId, youtubeId) {
+      const streamCard = document.getElementById(eventId + '-stream');
+      const player = streamCard.querySelector('.stream-player');
+      const status = streamCard.querySelector('.stream-status');
+      
+      player.innerHTML = `<iframe src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" allowfullscreen></iframe>`;
+      status.textContent = '🔴 LIVE NOW';
+      status.className = 'stream-status live';
+    }
+
+    // Function to share stream
+    function shareStream() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Manasa & Sharath Wedding Live Stream',
+          text: 'Watch the wedding celebration live!',
+          url: window.location.href
+        });
+      } else {
+        // Fallback - copy to clipboard
+        navigator.clipboard.writeText(window.location.href);
+        alert('Stream link copied to clipboard!');
+      }
+    }
+
+    // Update countdown every minute
+    updateEventCountdown();
+    setInterval(updateEventCountdown, 60000);
+  </script>
+</body>
+</html>

@@ -1298,3 +1298,307 @@ footer {
     padding: 0.5rem 1rem;
   }
 }
+
+/* --- Live Stream Page Styles --- */
+.live-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.live-status-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(141, 102, 153, 0.15);
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.pulse-dot {
+  width: 12px;
+  height: 12px;
+  background: #ff4444;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.next-event-info h3 {
+  color: #8d6699;
+  margin-bottom: 1rem;
+}
+
+.next-event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.event-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #4a2c57;
+}
+
+.event-date {
+  color: #6f4c7b;
+}
+
+.countdown-to-event {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.live-streams-section {
+  margin-bottom: 3rem;
+}
+
+.live-streams-section h2 {
+  text-align: center;
+  color: #4a2c57;
+  margin-bottom: 0.5rem;
+}
+
+.stream-subtitle {
+  text-align: center;
+  color: #6f4c7b;
+  margin-bottom: 2rem;
+}
+
+.stream-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stream-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(141, 102, 153, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stream-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(141, 102, 153, 0.25);
+}
+
+.stream-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #8d6699 0%, #c39ecf 100%);
+  color: white;
+}
+
+.stream-icon {
+  font-size: 2rem;
+}
+
+.stream-info h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.stream-date {
+  margin: 0 0 0.5rem 0;
+  opacity: 0.9;
+}
+
+.stream-status {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-weight: 500;
+}
+
+.stream-status.offline {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stream-status.live {
+  background: #ff4444;
+  animation: pulse 2s infinite;
+}
+
+.stream-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+}
+
+.stream-player iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.placeholder-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: linear-gradient(135deg, #4a2c57 0%, #6f4c7b 100%);
+  color: white;
+  text-align: center;
+}
+
+.play-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.7;
+}
+
+.stream-description {
+  padding: 1.5rem;
+  color: #4a2c57;
+}
+
+.stream-instructions {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(141, 102, 153, 0.15);
+}
+
+.stream-instructions h3 {
+  text-align: center;
+  color: #4a2c57;
+  margin-bottom: 2rem;
+}
+
+.instruction-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.instruction-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(195, 158, 207, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(141, 102, 153, 0.2);
+}
+
+.instruction-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.instruction-card h4 {
+  color: #4a2c57;
+  margin-bottom: 0.5rem;
+}
+
+.interaction-section {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(141, 102, 153, 0.15);
+}
+
+.interaction-section h3 {
+  color: #4a2c57;
+  margin-bottom: 1rem;
+}
+
+.interaction-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.interaction-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #8d6699 0%, #c39ecf 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.interaction-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(141, 102, 153, 0.3);
+  text-decoration: none;
+  color: white;
+}
+
+.event-live {
+  color: #ff4444;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Mobile responsiveness for live page */
+@media (max-width: 768px) {
+  .live-page-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .stream-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .countdown-to-event {
+    gap: 1rem;
+  }
+  
+  .interaction-options {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .live-indicator {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stream-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .instruction-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .countdown-to-event {
+    gap: 0.8rem;
+  }
+}
