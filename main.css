@@ -1268,6 +1268,27 @@ footer {
     font-size: 1.8rem;
   }
   
+  /* Story section mobile styles */
+  .story-section {
+    padding: 2rem 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .story-container {
+    padding: 0 0.5rem;
+  }
+  
+  .story-container h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .story-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+  
   .cta-buttons {
     flex-direction: column;
     align-items: center;
@@ -1328,6 +1349,27 @@ footer {
   .powered {
     font-size: 0.75rem;
     padding: 0.5rem 1rem;
+  }
+  
+  /* Story section extra small mobile styles */
+  .story-section {
+    padding: 1.5rem 0.25rem;
+    margin-top: 0.5rem;
+  }
+  
+  .story-container {
+    padding: 0 0.25rem;
+  }
+  
+  .story-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .story-text {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
   }
 }
 
