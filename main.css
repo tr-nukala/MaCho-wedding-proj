@@ -1276,6 +1276,7 @@ footer {
   
   .story-container {
     padding: 0 0.5rem;
+    max-width: 95%;
   }
   
   .story-container h2 {
@@ -1287,6 +1288,8 @@ footer {
     font-size: 1.1rem;
     line-height: 1.5;
     margin-bottom: 2rem;
+    max-width: 95%;
+    padding: 0 1rem;
   }
   
   .cta-buttons {
@@ -1359,6 +1362,7 @@ footer {
   
   .story-container {
     padding: 0 0.25rem;
+    max-width: 95%;
   }
   
   .story-container h2 {
@@ -1370,6 +1374,8 @@ footer {
     font-size: 1rem;
     line-height: 1.4;
     margin-bottom: 1.5rem;
+    max-width: 95%;
+    padding: 0 0.75rem;
   }
 }
 
