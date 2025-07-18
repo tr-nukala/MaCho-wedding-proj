@@ -99,7 +99,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // 4. Countdown timer for wedding date
 function updateCountdown() {
-  const weddingDate = new Date('2024-08-09T11:35:00').getTime();
+  const weddingDate = new Date('2025-08-09T23:35:00').getTime();
   const now = new Date().getTime();
   const timeLeft = weddingDate - now;
 
