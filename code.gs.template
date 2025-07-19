@@ -1,0 +1,280 @@
+/** =========================
+ *  CONFIG (EDIT THESE)
+ *  ========================= */
+const HOST_NOTIFY   = 'YOUR_EMAIL_HERE@gmail.com';   // Where you (the host) get internal notifications
+const SECRET_TOKEN  = 'YOUR_SECRET_TOKEN_HERE';      // Must match hidden <input name="token">
+const ICS_DOMAIN    = 'your-domain';                 // Arbitrary string used in UID
+
+/** Event definitions for ICS attachments (ALL TIMES IN LOCAL FORMAT).
+ *  Using same format as the static .ics files in events folder
+ */
+const ICS_EVENTS = {
+  Mehendi: {
+    summary: 'Mehendi Ceremony - Manasa & Sharath',
+    dtStart: '20250807T180000',
+    dtEnd: '20250807T230000',
+    timezone: 'America/Chicago',
+    location: '517 Jacob Dr\\, Aubrey\\, TX 76227',
+    description: 'Join us for the traditional Mehendi ceremony with beautiful henna designs, music, and celebration!',
+    uid: 'mehendi-2025-08-07@manasa-sharath-wedding.com',
+    alarmTrigger: '-PT2H',
+    alarmDescription: 'Mehendi Ceremony starts in 2 hours'
+  },
+  Haldi: {
+    summary: 'Haldi Ceremony - Manasa & Sharath',
+    dtStart: '20250808T180000',
+    dtEnd: '20250808T230000',
+    timezone: 'America/Chicago',
+    location: 'Elegance Estates\\, 1301 E Blackjack Rd\\, Pilot Point\\, TX 76258',
+    description: 'Traditional turmeric ceremony filled with joy\\, laughter\\, and lots of yellow! Bring your cool moves and crazy vibes. Dress code: Wear white or yellow.',
+    uid: 'haldi-2025-08-08@manasa-sharath-wedding.com',
+    alarmTrigger: '-PT2H',
+    alarmDescription: 'Haldi Ceremony starts in 2 hours'
+  },
+  Wedding: {
+    summary: 'Wedding Ceremony - Manasa & Sharath',
+    dtStart: '20250809T233500',
+    dtEnd: '20250810T010000',
+    timezone: 'America/Chicago',
+    location: 'Elegance Estates\\, 1301 E Blackjack Rd\\, Pilot Point\\, TX 76258',
+    description: ' The main wedding ceremony where two hearts become one. Join us for this sacred moment followed by celebration\\, dinner\\, and dancing!',
+    uid: 'wedding-ceremony-2025-08-09@manasa-sharath-wedding.com',
+    alarmTrigger: '-PT1H',
+    alarmDescription: 'Wedding Ceremony starts in 1 hour',
+    reception: {
+      summary: 'Wedding Reception - Manasa & Sharath',
+      dtStart: '20250809T210000',
+      dtEnd: '20250810T020000',
+      description: 'Join us for dinner\\, dancing\\, and celebration after the wedding ceremony!',
+      uid: 'wedding-reception-2025-08-09@manasa-sharath-wedding.com',
+      alarmDescription: 'Wedding Reception starts in 1 hour'
+    }
+  }
+};
+
+/** =========================
+ *  CORS + BASIC ENDPOINTS
+ *  ========================= */
+function cors_(obj){
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON)
+    .setHeader('Access-Control-Allow-Origin','*')
+    .setHeader('Access-Control-Allow-Methods','POST, OPTIONS')
+    .setHeader('Access-Control-Allow-Headers','Content-Type');
+}
+
+function doOptions(e){ return cors_({ok:true}); }
+function doGet(e){ return cors_({ok:true, info:'Wedding RSVP endpoint. Use POST.'}); }
+
+/** =========================
+ *  HELPERS
+ *  ========================= */
+function sanitize_(s){
+  return (s||'').replace(/[<>&"]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c]));
+}
+
+function formatUTC_(d){
+  const pad = n => String(n).padStart(2,'0');
+  return d.getUTCFullYear() +
+    pad(d.getUTCMonth()+1) +
+    pad(d.getUTCDate()) + 'T' +
+    pad(d.getUTCHours()) +
+    pad(d.getUTCMinutes()) +
+    pad(d.getUTCSeconds()) + 'Z';
+}
+
+function buildICS_(ev){
+  // RFC5545 requires CRLF line endings - with proper timezone support
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Manasa & Sharath Wedding//NONSGML Wedding Events//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VTIMEZONE',
+    'TZID:' + ev.timezone,
+    'BEGIN:DAYLIGHT',
+    'TZOFFSETFROM:-0600',
+    'TZOFFSETTO:-0500',
+    'TZNAME:CDT',
+    'DTSTART:20250309T020000',
+    'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU',
+    'END:DAYLIGHT',
+    'BEGIN:STANDARD',
+    'TZOFFSETFROM:-0500',
+    'TZOFFSETTO:-0600',
+    'TZNAME:CST',
+    'DTSTART:20251102T020000',
+    'RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU',
+    'END:STANDARD',
+    'END:VTIMEZONE',
+    'BEGIN:VEVENT',
+    'UID:' + ev.uid,
+    'DTSTART;TZID=' + ev.timezone + ':' + ev.dtStart,
+    'DTEND;TZID=' + ev.timezone + ':' + ev.dtEnd,
+    'DTSTAMP:' + formatUTC_(new Date()),
+    'SUMMARY:' + ev.summary,
+    'DESCRIPTION:' + ev.description,
+    'LOCATION:' + ev.location,
+    'STATUS:CONFIRMED',
+    'SEQUENCE:0',
+    'BEGIN:VALARM',
+    'TRIGGER:' + ev.alarmTrigger,
+    'ACTION:DISPLAY',
+    'DESCRIPTION:' + ev.alarmDescription,
+    'END:VALARM',
+    'END:VEVENT'
+  ];
+  
+  // For Wedding event, add reception as separate event
+  if (ev.reception) {
+    lines.push(
+      'BEGIN:VEVENT',
+      'UID:' + ev.reception.uid,
+      'DTSTART;TZID=' + ev.timezone + ':' + ev.reception.dtStart,
+      'DTEND;TZID=' + ev.timezone + ':' + ev.reception.dtEnd,
+      'DTSTAMP:' + formatUTC_(new Date()),
+      'SUMMARY:' + ev.reception.summary,
+      'DESCRIPTION:' + ev.reception.description,
+      'LOCATION:' + ev.location,
+      'STATUS:CONFIRMED',
+      'SEQUENCE:0',
+      'BEGIN:VALARM',
+      'TRIGGER:' + ev.alarmTrigger,
+      'ACTION:DISPLAY',
+      'DESCRIPTION:' + ev.reception.alarmDescription,
+      'END:VALARM',
+      'END:VEVENT'
+    );
+  }
+  
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n');
+}
+
+function cleanPhone_(p){
+  return (p||'').toString().replace(/\D/g,'');
+}
+
+/** =========================
+ *  MAIN POST HANDLER
+ *  ========================= */
+function doPost(e){
+  const d = e.parameter;  // using FormData (multipart) so parameters land here
+
+  // Honeypot & token
+  if (d.website) return cors_({ok:true}); // silently ignore bots
+  if (d.token !== SECRET_TOKEN) return cors_({ok:false, error:'unauthorized'});
+
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const rows  = sheet.getDataRange().getValues(); // includes header
+
+  // Dedupe logic: phone first, then email
+  const targetPhone = cleanPhone_(d.phone);
+  const phoneIndex = rows.findIndex((row,i) =>
+    i > 0 && cleanPhone_(row[3]) === targetPhone
+  );
+  let rowToUpdate = -1;
+  if (phoneIndex !== -1){
+    const emailMatches =
+      (rows[phoneIndex][2]||'').toString().toLowerCase() === (d.email||'').toLowerCase();
+    if (emailMatches) rowToUpdate = phoneIndex;
+  }
+
+  const values = [
+    new Date(),
+    d.name,
+    d.email,
+    d.phone,
+    d.partySize,  // Adults
+    d.kids,
+    d.events      // Comma-separated list
+  ];
+
+  if (rowToUpdate === -1){
+    sheet.appendRow(values);
+  } else {
+    sheet.getRange(rowToUpdate + 1, 1, 1, values.length).setValues([values]);
+  }
+
+  // Prepare ICS attachments only for selected events
+  const chosenEvents = (d.events || '')
+    .split(',')
+    .map(s => s.trim())
+    .filter(Boolean)
+    .filter(ev => ICS_EVENTS[ev]);
+
+  const attachments = chosenEvents.map(ev => {
+    const ics = buildICS_(ICS_EVENTS[ev]);
+    return Utilities.newBlob(ics, 'text/calendar', ev + '.ics');
+  });
+
+  // Build email content
+  const html = `
+  <div style="font-family:Arial,sans-serif;font-size:14px;color:#333;line-height:1.5">
+    <h2 style="margin:0 0 14px;color:#4a2c57">RSVP Confirmed 🎉</h2>
+    <p>Hi ${sanitize_(d.name) || 'there'},</p>
+    <p>Thank you for your RSVP. Calendar attachments ${
+      attachments.length ? 'are included' : 'will appear if you select events'
+    }.</p>
+    <table style="border-collapse:collapse;margin:12px 0">
+      <tr><td style="padding:4px 8px;font-weight:bold;">Adults:</td><td style="padding:4px 8px;">${sanitize_(d.partySize)}</td></tr>
+      ${(d.kids && parseInt(d.kids) > 0) ? `<tr><td style="padding:4px 8px;font-weight:bold;">Kids:</td><td style="padding:4px 8px;">${sanitize_(d.kids)}</td></tr>` : ''}
+      <tr><td style="padding:4px 8px;font-weight:bold;">Events:</td><td style="padding:4px 8px;">${sanitize_(d.events || '—')}</td></tr>
+    </table>
+    <p>If anything changes, just submit the form again with the same phone & email. Your entry updates automatically.</p>
+    <p>
+        <a href="https://YOUR_GITHUB_PAGES_URL_HERE/rsvp.html" target="_blank" rel="noopener">
+            https://YOUR_GITHUB_PAGES_URL_HERE/rsvp.html
+        </a>
+    </p>
+    <p style="margin:24px 0 8px;font-size:12px;color:#666">— Manasa &amp; Sharath</p>
+  </div>`;
+
+  const text =
+`RSVP Confirmed
+
+Name: ${d.name}
+Adults: ${d.partySize}${(d.kids && parseInt(d.kids) > 0) ? `\nKids: ${d.kids}` : ''}
+Events: ${d.events}
+
+Calendar attachments are included if you picked events.
+Need to change something? Re-submit with same phone & email.
+— Manasa & Sharath`;
+
+  // Send guest confirmation + host notification
+  try {
+    if (d.email) {
+      MailApp.sendEmail({
+        to: d.email,
+        subject: 'Thank you for your RSVP to Manasa & Sharath\'s Wedding events 🎉',
+        body: text,
+        htmlBody: html,
+        attachments: attachments,
+        replyTo: HOST_NOTIFY
+      });
+    }
+
+    // Internal notification (optional)
+    MailApp.sendEmail(
+      HOST_NOTIFY,
+      'New / updated RSVP',
+      JSON.stringify({
+        timestamp: values[0],
+        name: d.name,
+        email: d.email,
+        phone: d.phone,
+        adults: d.partySize,
+        kids: d.kids,
+        events: d.events,
+        updated: rowToUpdate !== -1
+      }, null, 2)
+    );
+
+  } catch(err){
+    console.error('Email send failed', err);
+  }
+
+  return cors_({ok:true});
+}
