@@ -11,6 +11,33 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="script.js" defer></script>
+  <script>
+    // Special handling for live.html email with multiple recipients and subject
+    document.addEventListener('DOMContentLoaded', function() {
+      const liveEmail = document.getElementById('live-email');
+      if (liveEmail) {
+        const user1 = liveEmail.dataset.user1;
+        const user2 = liveEmail.dataset.user2;
+        const domain = liveEmail.dataset.domain;
+        if (user1 && user2) {
+          const fullEmail = user1 + '@' + domain + ',' + user2 + '@' + domain;
+          liveEmail.href = 'mailto:' + fullEmail + '?subject=Live Stream Wishes';
+          liveEmail.innerHTML = '📧 Send Wishes';
+        }
+      }
+      
+      const successEmail = document.getElementById('success-email');
+      if (successEmail) {
+        const user = successEmail.dataset.user;
+        const domain = successEmail.dataset.domain;
+        if (user) {
+          const fullEmail = user + '@' + domain;
+          successEmail.href = 'mailto:' + fullEmail;
+          successEmail.innerHTML = '✉️ Email Us';
+        }
+      }
+    });
+  </script>
 </head>
 <body>
   <!-- Hamburger Menu -->
@@ -49,10 +76,10 @@
             <h3>Email</h3>
             <div class="email-wrapper">
               <div class="email-item">
-                <a href="mailto:manasakamepally0027@gmail.com">manasakamepally0027@gmail.com</a>
+                <a href="#" id="email1" data-user="manasakamepally0027" data-domain="gmail.com">Loading...</a>
               </div>
               <div class="email-item">
-                <a href="mailto:rakasisharath@gmail.com">rakasisharath@gmail.com</a>
+                <a href="#" id="email2" data-user="rakasisharath" data-domain="gmail.com">Loading...</a>
               </div>
             </div>
           </div>
@@ -62,7 +89,7 @@
           <div class="contact-icon">📞</div>
           <div class="contact-content">
             <h3>Phone</h3>
-            <a href="tel:+19452329179">+1 (945) 232-9179</a>
+            <a href="#" id="phone" data-number="19452329179">Loading...</a>
           </div>
         </div>
         

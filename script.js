@@ -1,3 +1,38 @@
+// Contact info obfuscation utility function
+function initContactObfuscation() {
+  // Helper function to format phone number
+  function formatPhoneNumber(number) {
+    return '+1 (' + number.slice(1,4) + ') ' + number.slice(4,7) + '-' + number.slice(7);
+  }
+
+  // Find and decode all obfuscated emails
+  document.querySelectorAll('[data-user][data-domain]').forEach(element => {
+    const user = element.dataset.user;
+    const domain = element.dataset.domain;
+    const fullEmail = user + '@' + domain;
+    element.href = 'mailto:' + fullEmail;
+    element.textContent = fullEmail;
+  });
+
+  // Find and decode all obfuscated phones
+  document.querySelectorAll('[data-number]').forEach(element => {
+    const number = element.dataset.number;
+    const formattedNumber = formatPhoneNumber(number);
+    element.href = 'tel:+' + number;
+    
+    // Keep original text styling if it had icons
+    const originalText = element.textContent;
+    if (originalText.includes('📞')) {
+      element.innerHTML = '📞 Call Us';
+    } else {
+      element.textContent = formattedNumber;
+    }
+  });
+}
+
+// Auto-initialize on page load
+document.addEventListener('DOMContentLoaded', initContactObfuscation);
+
 // 1. Hamburger menu functionality
 const hamburgerBtn = document.querySelector('#hamburger-btn');
 const navOverlay = document.querySelector('#nav-overlay');
