@@ -422,6 +422,26 @@ footer {
   transform: scale(1.1);
 }
 
+.credits-item {
+  margin-top: 4rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 2rem;
+}
+
+.credits {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 300;
+  font-style: italic;
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.credits:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
 /* --- Events Page Styles --- */
 .events-page {
   max-width: 800px;
