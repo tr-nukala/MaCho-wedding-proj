@@ -1093,6 +1093,46 @@ footer {
   line-height: 1.4;
 }
 
+.email-wrapper {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.email-item {
+  margin-bottom: 0.3rem;
+}
+
+.email-item:last-child {
+  margin-bottom: 0;
+}
+
+.email-wrapper a {
+  display: inline-block;
+  line-height: 1.3;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Mobile responsive for email addresses */
+@media (max-width: 768px) {
+  .email-wrapper a {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .email-wrapper a {
+    font-size: 0.75rem;
+    white-space: normal;
+    word-break: break-all;
+  }
+}
+
 .calendar-download-section {
   margin: 3rem 0;
 }
