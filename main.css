@@ -217,9 +217,20 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   line-height: 1.4;
-  animation: riseUp 1.2s ease-out both;
+  animation: breathe 3s ease-in-out infinite;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.powered:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 35px rgba(141, 102, 153, 0.4),
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
 }
 
 .powered::before {
@@ -236,6 +247,17 @@ footer {
 @keyframes shimmer {
   0% { left: -100%; }
   100% { left: 100%; }
+}
+
+@keyframes breathe {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% { 
+    transform: scale(1.02);
+    opacity: 1;
+  }
 }
 
 .powered:hover {
